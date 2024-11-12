@@ -1,0 +1,42 @@
+.good_card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  padding: 10px;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .name {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 限制显示两行 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    font-size: 16px;
+    line-height: 24px;
+    color: #14151a;
+    font-weight: 300;
+    margin-top: 12px;
+    font-family: PingFang SC;
+  }
+  .price {
+    font-family: POIZONSans Wide;
+    font-weight: 700;
+    color: #14151a;
+    font-size: 24px;
+    margin-top: 16px;
+  }
+}

@@ -1,0 +1,42 @@
+.goodsPage {
+  padding: 20px;
+  .shoes_container {
+    max-width: 1440px;
+    min-width: 1024px;
+    margin: 0 auto;
+    padding: 16px 96px 100px;
+    background: #fff;
+    min-height: 100vh;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .col {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 24px; /* 设置卡片的上下间距为 24px */
+    box-sizing: border-box;
+    flex: 1 1 100%;
+  }
+  @media (min-width: 576px) {
+    .col-sm-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+  @media (min-width: 768px) {
+    .col-md-4 {
+      flex: 0 0 33.3333%;
+      max-width: 33.3333%;
+    }
+  }
+  @media (min-width: 992px) {
+    .col-lg-3 {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+  }
+}
