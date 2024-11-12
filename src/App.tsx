@@ -1,60 +1,28 @@
 import React from "react";
-import { Outlet, useLoaderData } from "react-router-dom";
-import "./index.css";
-import Layout from "./layout";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, StaticRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
-import About from "./pages/About";
-import { Provider } from "react-redux";
-import store from "./store";
 import GoodsPage from "./pages/Goods";
+import About from "./pages/About";
+import Layout from "./layout";
+import GoodDetail from "./pages/GoodDetail";
 
-const App = ({ initialData }: any) => {
-  const testData = useLoaderData();
-  console.log("testData====", testData);
+interface AppProps {
+  staticContext?: any;
+  location?: string;
+  initialData?: any;
+}
+
+const App: React.FC<AppProps> = ({ staticContext, location, initialData }) => {
   return (
-    <Provider store={store}>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home initialData={initialData} />} />
-          <Route
-            path="/goods"
-            element={<GoodsPage initialData={initialData} />}
-          />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </Layout>
-    </Provider>
+    <Layout>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/goods" component={GoodsPage} />
+        <Route path="/goodDetail/:id" component={GoodDetail} />
+        <Route path="/about" component={About} />
+      </Switch>
+    </Layout>
   );
 };
 
 export default App;
-
-// import React from "react";
-// import { Outlet } from "react-router-dom";
-// import "./index.css";
-// import Layout from "./layout";
-// import { Route, Routes } from "react-router-dom";
-// import GoodsPage, { loader as goodsLoader } from "./pages/Goods";
-// import Home, { loader as homeLoader } from "./pages/Goods";
-// import About from "./pages/About";
-
-// const App = ({ initialData }: any) => (
-//   <Layout>
-//     <Routes>
-//       <Route
-//         path="/"
-//         element={<Home initialData={initialData} />}
-//         loader={homeLoader}
-//       />
-//       <Route
-//         path="/goods"
-//         element={<GoodsPage initialData={initialData} />}
-//         loader={goodsLoader}
-//       />
-//       <Route path="/about" element={<About />} />
-//     </Routes>
-//   </Layout>
-// );
-
-// export default App;

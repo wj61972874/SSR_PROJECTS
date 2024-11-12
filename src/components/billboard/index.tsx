@@ -5,8 +5,8 @@ const Billboard = () => {
   return (
     <div className="billBoard">
       <article className="article">
-        <h1 className="title">React Server Side Render</h1>
-        <p className="desc">React 服务端渲染</p>
+        <div>这是一个个人网站，下面数据都是MOCK的，无任何商业性质！！！</div>
+        <div>React+koa2实现SSR+CRS同构</div>
       </article>
     </div>
   );
