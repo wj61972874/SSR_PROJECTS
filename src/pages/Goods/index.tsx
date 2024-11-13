@@ -6,6 +6,7 @@ import withInitialProps from "../../hoc/withInitialProps";
 
 const GoodsPage = (props: any) => {
   const { fetchData } = props.initialData || {};
+  console.log("GoodsPage====", props.initialData);
   return <GoodsList goods={fetchData} />;
 };
 

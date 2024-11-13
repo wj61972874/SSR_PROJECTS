@@ -15,19 +15,15 @@ if (container) {
   if (container.hasChildNodes()) {
     hydrateRoot(
       container,
-      <React.StrictMode>
-        <BrowserRouter>
-          <App initialData={initialData} />
-        </BrowserRouter>
-      </React.StrictMode>
+      <BrowserRouter>
+        <App initialData={initialData} />
+      </BrowserRouter>
     );
   } else {
     createRoot(container).render(
-      <React.StrictMode>
-        <BrowserRouter>
-          <App initialData={initialData} />
-        </BrowserRouter>
-      </React.StrictMode>
+      <BrowserRouter>
+        <App initialData={initialData} />
+      </BrowserRouter>
     );
   }
 } else {

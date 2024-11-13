@@ -8,6 +8,7 @@ import withInitialProps from "../../hoc/withInitialProps";
 
 const Home = (props: any) => {
   const { fetchData } = props.initialData || {};
+  console.log("Home====进来了", props.initialData);
   return (
     <div className="home_container">
       <Billboard />
