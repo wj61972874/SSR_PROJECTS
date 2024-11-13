@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.less";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 
 const GoodCard = ({ info }: any) => {
   const history = useHistory();
