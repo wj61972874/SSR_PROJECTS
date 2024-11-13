@@ -1,42 +1,47 @@
+/* src/components/goodsList/index.less */
 .goodsPage {
-  padding: 20px;
-  .shoes_container {
-    max-width: 1440px;
-    min-width: 1024px;
-    margin: 0 auto;
-    padding: 16px 96px 100px;
-    background: #fff;
-    min-height: 100vh;
-  }
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -10px;
-    margin-right: -10px;
-  }
+  padding: 24px;
+  margin: 0 auto; /* 居中 */
+  max-width: calc(100% - 480px); /* 最大宽度，减去左右外边距 */
+}
+
+.shoes_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -12px; /* 负边距用于抵消子元素的外边距 */
+}
+
+.col {
+  box-sizing: border-box;
+  padding: 12px; /* 子元素的内边距 */
+  flex: 1 1 calc(25% - 24px); /* 计算每个卡片的宽度 */
+  max-width: calc(25% - 24px); /* 确保每个卡片的最大宽度 */
+  margin: 12px; /* 子元素的外边距 */
+}
+
+@media (max-width: 1200px) {
   .col {
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 24px; /* 设置卡片的上下间距为 24px */
-    box-sizing: border-box;
-    flex: 1 1 100%;
+    flex: 1 1 calc(33.333% - 24px);
+    max-width: calc(33.333% - 24px);
   }
-  @media (min-width: 576px) {
-    .col-sm-6 {
-      flex: 0 0 50%;
-      max-width: 50%;
-    }
+}
+
+@media (max-width: 992px) {
+  .col {
+    flex: 1 1 calc(50% - 24px);
+    max-width: calc(50% - 24px);
   }
-  @media (min-width: 768px) {
-    .col-md-4 {
-      flex: 0 0 33.3333%;
-      max-width: 33.3333%;
-    }
-  }
-  @media (min-width: 992px) {
-    .col-lg-3 {
-      flex: 0 0 25%;
-      max-width: 25%;
-    }
+}
+
+@media (max-width: 768px) {
+  .col {
+    flex: 1 1 calc(100% - 24px);
+    max-width: calc(100% - 24px);
   }
 }

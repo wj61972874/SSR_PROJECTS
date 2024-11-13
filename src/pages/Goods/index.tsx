@@ -1,28 +1,34 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
 import "./index.less";
 import { apiGetGoodsData } from "../../services/goods";
 import GoodsList from "../../components/goodsList";
+import withInitialProps from "../../hoc/withInitialProps";
 
-const GoodsPage = ({ initialData = undefined }: any) => {
-  // const data1: any = useLoaderData();
-  const data = initialData || useLoaderData() || { goods: [] };
-  const { goods } = data as { goods: any[] };
-  console.log("goods", goods);
-  return <GoodsList goods={goods} />;
+const GoodsPage = (props: any) => {
+  const { fetchData } = props.initialData || {};
+  console.log("GoodsPage====", props.initialData);
+  return <GoodsList goods={fetchData} />;
 };
 
 // 定义数据预取函数
-export const loader = async () => {
+GoodsPage.getInitialProps = async () => {
   try {
-    console.log("这是goods页面的loader");
+    console.log("这是Goods页面的loader");
     const res = await apiGetGoodsData();
-    console.log("fetchData res", res);
-    return res;
+    return {
+      fetchData: res || {},
+      page: {
+        tdk: {
+          title: "这是商品主页面",
+          keywords: "koa-react-ssr",
+          description: "koa-react-ssr",
+        },
+      },
+    };
   } catch (e) {
     console.log("fetchData error", e);
     return { goods: [] };
   }
 };
 
-export default GoodsPage;
+export default withInitialProps(GoodsPage);

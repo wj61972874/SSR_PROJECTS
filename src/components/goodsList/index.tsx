@@ -12,10 +12,13 @@ interface IGood {
   price: number;
   img: string;
 }
+
 const GoodsList = ({ goods = [] }: IProps) => {
-  console.log("GoodsList====goods", goods);
+  console.log("GoodsList====数据", goods);
+
   return (
     <div className="goodsPage">
+      {/* aaa */}
       <article className="shoes_container">
         <div className="row">
           {(goods || []).map((item, index) => (

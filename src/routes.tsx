@@ -1,31 +1,36 @@
 import About from "./pages/About";
-import GoodsPage, { loader as goodsLoader } from "./pages/Goods";
-import Home, { loader as homeLoader } from "./pages/Home";
+import GoodsPage from "./pages/Goods";
+import Home from "./pages/Home";
 import App from "./App";
 import React from "react";
-import { RouteObject } from "react-router-dom";
+import GoodDetail from "./pages/GoodDetail";
 
-const routes: RouteObject[] = [
+const routes = [
   {
     path: "/",
-    element: <Home />,
-    loader: homeLoader,
+    component: Home,
+    // loader: homeLoader,
+  },
+  {
+    path: "/goodDetail/:id",
+    component: GoodDetail,
+    // loader: goodsLoader, // 确保 loader 属性正确引用 GoodsPage.loader 函数
   },
   {
     path: "/goods",
-    element: <GoodsPage />,
-    loader: goodsLoader, // 确保 loader 属性正确引用 GoodsPage.loader 函数
+    component: GoodsPage,
+    // loader: goodsLoader, // 确保 loader 属性正确引用 GoodsPage.loader 函数
   },
   {
     path: "/about",
-    element: <About />,
+    component: About,
   },
 ];
 
-export const borwserRoutes: RouteObject[] = [
+export const borwserRoutes = [
   {
     path: "/",
-    element: <App />,
+    component: <App />,
     children: routes,
   },
 ];
